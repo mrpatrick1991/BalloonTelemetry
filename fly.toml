@@ -1,0 +1,21 @@
+# fly.toml app configuration file generated for balloontelemetry on 2023-09-30T21:53:31-06:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "balloontelemetry"
+primary_region = "sea"
+
+[build]
+  builder = "paketobuildpacks/builder:base"
+
+[env]
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = false
+  min_machines_running = 1
+  processes = ["app"]
